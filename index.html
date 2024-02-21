@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Banging Bots Together</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -21,9 +21,9 @@
 				</header>
 				<section id="cover">
 					<img src="images/infobip/orange-and-white.png" />
-					<h1>The ABC of DX</h1>
+					<h1>Banging Bots Together</h1>
 					<h3>Mike Elsmore</h3>
-					<p>Last update: 25/07/2023</p>
+					<p>Last update: 2023/10/07</p>
 				</section>
 				<section id="bio" class="template white">
 					<img src="images/bio/mike-elsmore.png" />
@@ -37,17 +37,97 @@
 				<section>
 					<img src="images/infobip/orange-and-white.png" />
 				</section>
-				<section class="template orange">
-					<h1>Slide</h1>
-					<p>Orange</p>
-				</section>
 				<section class="template white">
-					<h1>Slide</h1>
-					<p>White</p>
+					<img src="images/gifs/corporate announcement.gif" class="r-stretch" />
 				</section>
 				<section class="template blue">
-					<h1>Slide</h1>
-					<p>Blue</p>
+					<h1>Conversational <span class="fragment">AI</span></h1>
+				</section>
+				<section class="template white">
+					<img src="https://i.imgflip.com/8598j9.jpg" class="r-stretch" />
+				</section>
+				<section class="template white">
+					<img src="images/gifs/we are not talking about this.gif" class="r-stretch" />
+				</section>
+				<section class="template blue">
+					<h1>Conversational <span class="fragment">UI</span></h1>
+				</section>
+				<section class="template orange">
+					<h1>Context<span class="fragment">: ChatBots</span></h1>
+				</section>
+				<section class="template blue">
+					<img src="images/gifs/so last quarter.gif" class="r-stretch" />
+				</section>
+				<section class="template white" >
+					<blockquote>A <b>conversational user interface (CUI)</b> is a user interface for computers that emulates a conversation with a real human. Historically, computers have relied on text-based user interfaces and graphical user interfaces (GUIs) (such as the user pressing a "back" button) to translate the user's desired action into commands the computer understands. While an effective mechanism of completing computing actions, there is a learning curve for the user associated with GUI. Instead, CUIs provide opportunity for the user to communicate with the computer in their natural language rather than in a syntax specific commands.</blockquote>
+					<p>From https://en.wikipedia.org/wiki/Conversational_user_interface</p>
+				</section>
+				<section class="template blue">
+					<h1>Not all chat bots are created equal</h1>
+				</section>
+				<section class="template white">
+					<img src="images/generative image bot.png" class="r-stretch" />
+				</section>
+				<section id="generated-ai-images">
+					<img src="images/generative image bot.png" />
+				</section>
+				<section class="template blue">
+					<h1>This is just a text user interface</h1>
+					<h2 class="fragment">…it just happens to use a messaging app</h2>
+					<h2 class="fragment">…like most chatbots</h2>
+				</section>
+				<section class="template blue">
+					<h1>So what makes it a Conversational UI?</h1>
+				</section>
+				<section class="template white">
+					<img src="images/gifs/rapunzel blah blah.gif" class="r-stretch" />
+				</section>
+				<section class="template orange">
+					<h1>Using it feels like a conversation, less of a chore</h1>
+				</section>
+				<section class="template white">
+					<img src="images/Infobip Connect Bipbop.png" class="r-stretch" />
+				</section>
+				<section class="template white">
+					<img src="images/gifs/the prize is life changing.gif" class="r-stretch" />
+				</section>
+				<section class="template white">
+					<img src="images/Infobip Connect Bipbop.png" class="r-stretch" />
+				</section>
+				<section class="template blue">
+					<h1>No AI, just well thought out flows</h1>
+				</section>
+				<section class="template blue">
+					<h1>And considerate language used</h1>
+				</section>
+				<section>
+					<h1>Prompt to look at the flows…</h1>
+				</section>
+				<section class="template white">
+					<img src="images/gifs/lets elevate.gif" class="r-stretch" />
+				</section>
+				<section class="template blue">
+					<h1>This is when we add the secret sauce</h1>
+					<ul>
+						<li class="fragment">Natural Language Processing</li>
+						<li class="fragment">LLMs to infer context</li>
+						<li class="fragment">…and the rest</li>
+					</ul>
+				</section>
+				<section class="template white">
+					<img src="images/gifs/calculated.gif" class="r-stretch" />
+				</section>
+				<section class="template blue">
+					<h1>You use these all the time…</h1>
+					<ul>
+						<li class="fragment">Alexa</li>
+						<li class="fragment">Siri</li>
+						<li class="fragment">Hey Google</li>
+						<li class="fragment">…all the voice assistants and booking agent bots~</li>
+					</ul>
+				</section>
+				<section class="template blue">
+					<h1>So what'll you be building next as a Conversational UI?</h1>
 				</section>
 				<section class="template white">
 					<h1>Thank you! I'm @ukmadlz</h1>
@@ -63,6 +143,7 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://cdn.ably.com/lib/ably.min-1.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -96,6 +177,22 @@
 			}
 			Reveal.on('ready', hideHeaderAndFooter);
 			Reveal.on('slidechanged', hideHeaderAndFooter);
+			var client = new Ably.Realtime.Promise({ key: "qzuNvQ.CvnlXw:skOGPwgPeG7c34or6YyRx3zH1mEbNRJE6oLqS0c1ON8" });
+			client.connection.on('connected', function() {
+				console.log('Connected to Ably');
+				var channel = client.channels.get('bashing-bots-together');
+				channel.subscribe(function (message) {
+					if (message.name === "image") {
+						var data = JSON.parse(message.data);
+						const { imageUrl } = data;
+						var img = document.createElement("img");
+						img.style = "width: 8em;"
+						img.src = imageUrl
+						var src = document.getElementById("generated-ai-images");
+						src.appendChild(img);
+					}
+				});
+			});
 		</script>
 	</body>
 </html>
